@@ -1,4 +1,4 @@
-# DotnetBasicConsole
+# Dotnet Basic Console app
 
 
-basoc dependency injection Console app engine
+basic dependency injection Console app engine
