@@ -1,0 +1,1 @@
+﻿record Person(long Id , string FirstName, string LastName);
