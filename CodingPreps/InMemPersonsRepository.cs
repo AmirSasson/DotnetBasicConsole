@@ -14,7 +14,7 @@ namespace CodingPreps
         public Task<Person> Get(int id)
         {
             _db.TryGetValue(id, out Person person);
-            return Task.FromResult< Person >( person);
+            return Task.FromResult< Person >( person!);
         }
 
         public Task<IEnumerable<Person>> Get()

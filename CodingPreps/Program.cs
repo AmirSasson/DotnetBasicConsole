@@ -19,7 +19,8 @@ CancellationTokenSource tokenSrc = new CancellationTokenSource();
 var loggerFac = host.Services.GetService<ILoggerFactory>();
 var logger = loggerFac.CreateLogger<PersonsService>();
 
-Console.CancelKeyPress += (sender, eArgs) => {
+Console.CancelKeyPress += (sender, eArgs) =>
+{
     tokenSrc.Cancel();
     logger.LogCritical("Shutting Down requested..");
     eArgs.Cancel = true;
@@ -49,8 +50,6 @@ Task.Run(async () =>
 {
     while (!tokenSrc.IsCancellationRequested)
     {
-        var person = new Person(DateTime.UtcNow.Ticks, $"amir-{DateTime.UtcNow.Ticks}", "sasson");
-
         var service = host.Services.GetService<IPersonsService>();
 
         var persons = await service!.GetAll();
