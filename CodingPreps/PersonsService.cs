@@ -10,6 +10,11 @@ internal class PersonsService : IPersonsService
         _repo = repo;
     }
 
+    public Task<IEnumerable<Person>> GetAll()
+    {
+        return _repo.Get();
+    }
+
     public Task<Person> GetById(int id)
     {
         return _repo.Get(id);
@@ -17,6 +22,7 @@ internal class PersonsService : IPersonsService
 
     public Task<Person> Upsert(Person person)
     {
+        Console.WriteLine($"upserting ${person.Id}");
         return _repo.Save(person);
     }
 }

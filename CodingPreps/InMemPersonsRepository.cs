@@ -17,6 +17,13 @@ namespace CodingPreps
             return Task.FromResult< Person >( person);
         }
 
+        public Task<IEnumerable<Person>> Get()
+        {
+            var persons = _db.Values;
+
+            return Task.FromResult(persons.AsEnumerable());
+        }
+
         public Task<Person> Save(Person person)
         {
             _db[person.Id] = person;
